@@ -4,7 +4,15 @@ local map = vim.keymap.set
 
 require('mason').setup{}
 require('mason-lspconfig').setup({
-  ensure_installed = {"sumneko_lua", "tsserver", "gopls", "jdtls","pyright"}
+  ensure_installed = {
+    "sumneko_lua",
+    "tsserver",
+    "gopls",
+    "jdtls",
+    "pyright",
+    "intelephense",
+    "lemminx"
+  }
 })
 local lsp = require('lspconfig')
 
@@ -13,6 +21,8 @@ lsp.tsserver.setup{}
 lsp.gopls.setup{}
 lsp.jdtls.setup{}
 lsp.pyright.setup{}
+lsp.intelephense.setup{}
+lsp.lemminx.setup{}
 
 ----------------------------------
 -- OPTIONS -----------------------

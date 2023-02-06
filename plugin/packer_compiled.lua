@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/pintu/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/pintu/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/pintu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/pintu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/pintu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/ncrypthic/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/ncrypthic/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/ncrypthic/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/ncrypthic/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/ncrypthic/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -76,81 +76,79 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-nvim-lsp-signature-help"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
   },
   ["cmp-vsnip"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   ["colorbuddy.vim"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/colorbuddy.vim",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/colorbuddy.vim",
     url = "https://github.com/tjdevries/colorbuddy.vim"
   },
   ["dap-buddy.nvim"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/dap-buddy.nvim",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/dap-buddy.nvim",
     url = "https://github.com/Pocco81/dap-buddy.nvim"
   },
   ["formatter.nvim"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/formatter.nvim",
     url = "https://github.com/mhartington/formatter.nvim"
   },
   fzf = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/fzf",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/fzf",
     url = "https://github.com/junegunn/fzf"
   },
   ["fzf-lua"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/fzf-lua",
     url = "https://github.com/ibhagwan/fzf-lua"
   },
   ["galaxyline.nvim"] = {
     config = { "\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30galaxyline.themes.eviline\frequire\0" },
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
     url = "https://github.com/NTBBloodbath/galaxyline.nvim"
   },
   ["gitsigns.nvim"] = {
     config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0" },
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["gruvbox.nvim"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/opt/mason-lspconfig.nvim",
+    loaded = true,
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/opt/mason.nvim",
+    loaded = true,
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-code-action-menu"] = {
@@ -158,80 +156,80 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = true,
     only_cond = false,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/opt/nvim-code-action-menu",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/opt/nvim-code-action-menu",
     url = "https://github.com/weilbith/nvim-code-action-menu"
   },
   ["nvim-comment"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-comment",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
   },
   ["nvim-dap"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-dap-go"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-dap-go",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-dap-go",
     url = "https://github.com/leoluz/nvim-dap-go"
   },
   ["nvim-dap-ui"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-dap-vscode-js"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-dap-vscode-js",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-dap-vscode-js",
     url = "https://github.com/mxsdev/nvim-dap-vscode-js"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-metals"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-metals",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-metals",
     url = "https://github.com/scalameta/nvim-metals"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/opt/packer.nvim",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/opt/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["vim-closer"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/vim-closer",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/vim-closer",
     url = "https://github.com/rstacruz/vim-closer"
   },
   ["vim-delve"] = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/opt/vim-delve",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/opt/vim-delve",
     url = "https://github.com/sebdah/vim-delve"
   },
   ["vim-dispatch"] = {
@@ -239,36 +237,36 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/opt/vim-dispatch",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/opt/vim-dispatch",
     url = "https://github.com/tpope/vim-dispatch"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-matchup"] = {
-    after_files = { "/Users/pintu/.local/share/nvim/site/pack/packer/opt/vim-matchup/after/plugin/matchit.vim" },
+    after_files = { "/Users/ncrypthic/.local/share/nvim/site/pack/packer/opt/vim-matchup/after/plugin/matchit.vim" },
     loaded = false,
     needs_bufread = true,
     only_cond = false,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/opt/vim-matchup",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/opt/vim-matchup",
     url = "https://github.com/andymass/vim-matchup"
   },
   ["vim-vsnip"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   },
   ["vista.vim"] = {
     loaded = true,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/start/vista.vim",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/start/vista.vim",
     url = "https://github.com/liuchengxu/vista.vim"
   },
   ["vscode-js-debug"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/pintu/.local/share/nvim/site/pack/packer/opt/vscode-js-debug",
+    path = "/Users/ncrypthic/.local/share/nvim/site/pack/packer/opt/vscode-js-debug",
     url = "https://github.com/microsoft/vscode-js-debug"
   }
 }
@@ -285,6 +283,20 @@ time([[Config for gitsigns.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'Start', function(cmdargs)
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Start', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Start' }, _G.packer_plugins)
+          return vim.fn.getcompletion('Start ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'CodeActionMenu', function(cmdargs)
+          require('packer.load')({'nvim-code-action-menu'}, { cmd = 'CodeActionMenu', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'nvim-code-action-menu'}, { cmd = 'CodeActionMenu' }, _G.packer_plugins)
+          return vim.fn.getcompletion('CodeActionMenu ', 'cmdline')
+      end})
 pcall(vim.api.nvim_create_user_command, 'Dispatch', function(cmdargs)
           require('packer.load')({'vim-dispatch'}, { cmd = 'Dispatch', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -305,20 +317,6 @@ pcall(vim.api.nvim_create_user_command, 'Focus', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'vim-dispatch'}, { cmd = 'Focus' }, _G.packer_plugins)
           return vim.fn.getcompletion('Focus ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'Start', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Start', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Start' }, _G.packer_plugins)
-          return vim.fn.getcompletion('Start ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'CodeActionMenu', function(cmdargs)
-          require('packer.load')({'nvim-code-action-menu'}, { cmd = 'CodeActionMenu', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'nvim-code-action-menu'}, { cmd = 'CodeActionMenu' }, _G.packer_plugins)
-          return vim.fn.getcompletion('CodeActionMenu ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 
