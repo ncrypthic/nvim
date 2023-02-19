@@ -9,6 +9,7 @@ require("formatter").setup {
   -- All formatter configurations are opt-in
   filetype = {
     typescript = { require('formatter.filetypes.typescript').prettier },
+    javascript = { require('formatter.filetypes.typescript').prettier },
     go = { require('formatter.filetypes.go').gofmt },
     ["*"] = {
       -- "formatter.filetypes.any" defines default configurations for any

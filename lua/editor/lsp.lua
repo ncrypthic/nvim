@@ -24,6 +24,12 @@ lsp.pyright.setup{}
 lsp.intelephense.setup{}
 lsp.lemminx.setup{}
 
+require('nvim-treesitter.configs').setup({
+  highlight = {
+    enable = true
+  }
+})
+
 ----------------------------------
 -- OPTIONS -----------------------
 ----------------------------------

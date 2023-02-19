@@ -11,18 +11,15 @@ dap.adapters.node2 = {
   args = {os.getenv("HOME") .. "/.local/share/microsoft/vscode-node-debug2/out/src/nodeDebug.js"}
 }
 
-dap.configurations.typescript = {
+dap.configurations.javascript = {
   {
     name = "Launch",
     type = "node2",
     request = "launch",
     runtimeExecutable = "node",
-    runtimeArgs = { "-r", "ts-node/register", "--nolazy"},
     args = {"--inspect", "${file}"},
     cwd = "${workspaceFolder}",
-    sourceMaps = true,
     protocol = "inspector",
-    outFiles = {"${workspaceFolder}/src/**/*.js"},
   },
   {
     name = "Run Jest",
