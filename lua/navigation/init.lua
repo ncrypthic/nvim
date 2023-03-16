@@ -19,11 +19,13 @@ map("n", "<leader><tab>", function()
 end)
 
 map("i", "<C-e>", function()
-    fzf.grep_project()
+    fzf.grep_project({ rg_opts = "--column --line-number --no-heading --color=always --smart-case " ..
+      "--max-columns=4096 --hidden -g !.git"})
 end)
 
 map("n", "<C-e>", function()
-    fzf.grep_project()
+    fzf.grep_project({ rg_opts = "--column --line-number --no-heading --color=always --smart-case " ..
+      "--max-columns=4096 --hidden -g !.git"})
 end)
 
 map("n", "<C-p>", function()

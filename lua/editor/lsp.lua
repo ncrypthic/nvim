@@ -5,31 +5,61 @@ local map = vim.keymap.set
 require('mason').setup{}
 require('mason-lspconfig').setup({
   ensure_installed = {
-    "sumneko_lua",
+    "lua_ls",
     "tsserver",
     "gopls",
     "jdtls",
     "pyright",
+    "solargraph",
     "intelephense",
     "lemminx"
   }
 })
 local lsp = require('lspconfig')
 
-lsp.sumneko_lua.setup{}
+lsp.lua_ls.setup{}
 lsp.tsserver.setup{}
 lsp.gopls.setup{}
 lsp.jdtls.setup{}
 lsp.pyright.setup{}
+lsp.solargraph.setup{}
 lsp.intelephense.setup{}
 lsp.lemminx.setup{}
+lsp.kotlin_language_server.setup{}
+lsp.tailwindcss.setup{}
 
-require('nvim-treesitter.configs').setup({
+require'nvim-treesitter.configs'.setup {
   highlight = {
-    enable = true
-  }
+    enable = true,
+  },
+  refactor = {
+    highlight_definitions = {
+      enable = true,
+    },
+  },
+}
+
+-- autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
+-- autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+-- autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.lsp.buf.document_highlight()
+  end,
 })
 
+vim.api.nvim_create_autocmd("CursorHoldI", {
+  callback = function()
+    vim.lsp.buf.document_highlight()
+  end,
+})
+
+vim.api.nvim_create_autocmd("CursorMoved", {
+  callback = function()
+    vim.lsp.buf.clear_references()
+  end,
+})
 ----------------------------------
 -- OPTIONS -----------------------
 ----------------------------------
@@ -75,10 +105,6 @@ end)
 
 map("n", "<leader>f", function()
   vim.lsp.buf.formatting()
-end)
-
-map("n", "<leader>ca", function()
-  vim.lsp.buf.code_action()
 end)
 
 map("n", "<leader>ws", function()

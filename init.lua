@@ -19,6 +19,8 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.mapleader = "\\"
 
+api.nvim_set_option('updatetime', 1000)
+
 cmd([[colorscheme gruvbox]])
 
 require('plugins')

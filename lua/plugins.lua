@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', options = {
     ensure_installed = { "vim", "lua", "http", "json" }
   }}
+  use { 'nvim-treesitter/nvim-treesitter-refactor', requires = {'nvim-treesitter/nvim-treesitter'} }
 
   -- Layout
 
@@ -112,7 +113,7 @@ return require('packer').startup(function(use)
       -- Open request results in a horizontal split
       result_split_horizontal = false,
       -- Keep the http file buffer above|left when split horizontal|vertical
-      result_split_in_place = false,
+      result_split_in_place = true,
       -- Skip SSL verification, useful for unknown certificates
       skip_ssl_verification = false,
       -- Encode URL before making request
@@ -137,7 +138,7 @@ return require('packer').startup(function(use)
         },
       },
       -- Jump to request line on run
-      jump_to_request = false,
+      jump_to_request = true,
       env_file = '.env',
       custom_dynamic_variables = {},
       yank_dry_run = true,
@@ -147,4 +148,7 @@ return require('packer').startup(function(use)
 
   -- Formatter
   use { 'mhartington/formatter.nvim' }
+
+  -- Language specific plugins -------------------------------
+  use { 'fatih/vim-go' }
 end)
