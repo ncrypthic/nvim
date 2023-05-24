@@ -3,11 +3,12 @@ local cmd = vim.cmd
 local map = vim.keymap.set
 local tree = require('nvim-tree')
 local fzf = require('fzf-lua')
+local treeapi = require('nvim-tree.api')
 
 tree.setup{}
 
 map("n", "<leader>t", function()
-    tree.toggle()
+    treeapi.tree.toggle()
 end)
 
 map("n", "<leader>g", function()
@@ -32,6 +33,6 @@ map("n", "<C-p>", function()
     fzf.files()
 end)
 
-tree.toggle()
+treeapi.tree.toggle()
 
 api.nvim_command('winc l')

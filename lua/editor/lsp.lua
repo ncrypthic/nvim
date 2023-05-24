@@ -7,6 +7,8 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     "lua_ls",
     "tsserver",
+    -- "psalm",
+    "terraformls",
     "gopls",
     "jdtls",
     "pyright",
@@ -18,6 +20,7 @@ require('mason-lspconfig').setup({
 local lsp = require('lspconfig')
 
 lsp.lua_ls.setup{}
+-- lsp.psalm.setup{}
 lsp.tsserver.setup{}
 lsp.gopls.setup{}
 lsp.jdtls.setup{}
@@ -27,6 +30,7 @@ lsp.intelephense.setup{}
 lsp.lemminx.setup{}
 lsp.kotlin_language_server.setup{}
 lsp.tailwindcss.setup{}
+lsp.terraformls.setup{}
 
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -45,13 +49,25 @@ require'nvim-treesitter.configs'.setup {
 
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
-    vim.lsp.buf.document_highlight()
+    local clients = vim.lsp.get_active_clients()
+    if client == nil then
+      return
+    end
+    if clients[1].server_capabilities.documentHighlightProvider then
+      vim.lsp.buf.document_highlight()
+    end
   end,
 })
 
 vim.api.nvim_create_autocmd("CursorHoldI", {
   callback = function()
-    vim.lsp.buf.document_highlight()
+    local clients = vim.lsp.get_active_clients()
+    if client == nil then
+      return
+    end
+    if clients[1].server_capabilities.documentHighlightProvider then
+      vim.lsp.buf.document_highlight()
+    end
   end,
 })
 

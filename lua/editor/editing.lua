@@ -12,6 +12,7 @@ require("formatter").setup {
     typescriptreact = { require('formatter.filetypes.typescriptreact').prettier },
     javascript = { require('formatter.filetypes.typescript').prettier },
     javascriptreact = { require('formatter.filetypes.javascriptreact').prettier },
+    php={require('formatter.filetypes.php').php_cs_fixer},
     go = { require('formatter.filetypes.go').gofmt },
     ["*"] = {
       -- "formatter.filetypes.any" defines default configurations for any

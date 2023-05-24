@@ -78,7 +78,7 @@ return require('packer').startup(function(use)
   -- LSP plugins
 
   use { 'williamboman/mason.nvim' }
-  use { 'williamboman/mason-lspconfig.nvim', ensure_installed = {"tsserver", "sumneko_lua", "gopls"}, automatic_installation = true }
+  use { 'williamboman/mason-lspconfig.nvim', automatic_installation = true }
   use { 'neovim/nvim-lspconfig' }
   use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
