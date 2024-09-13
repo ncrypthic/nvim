@@ -14,6 +14,7 @@ require("formatter").setup {
     javascriptreact = { require('formatter.filetypes.javascriptreact').prettier },
     php={require('formatter.filetypes.php').php_cs_fixer},
     go = { require('formatter.filetypes.go').gofmt },
+    kotlin = { require('formatter.filetypes.kotlin').ktlint },
     ["*"] = {
       -- "formatter.filetypes.any" defines default configurations for any
       -- filetype

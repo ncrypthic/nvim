@@ -5,7 +5,14 @@ local tree = require('nvim-tree')
 local fzf = require('fzf-lua')
 local treeapi = require('nvim-tree.api')
 
-tree.setup{}
+tree.setup{
+  renderer = {
+    group_empty = true
+  },
+  diagnostics = {
+    enable = true
+  }
+}
 
 map("n", "<leader>t", function()
     treeapi.tree.toggle()
@@ -13,6 +20,10 @@ end)
 
 map("n", "<leader>g", function()
     cmd(':b#')
+end)
+
+map("n", "<leader>m", function()
+  fzf.marks()
 end)
 
 map("n", "<leader><tab>", function()

@@ -1,154 +1,179 @@
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use { 'wbthomason/packer.nvim', opt = true }
+return {
+  -- colors
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  -- stdlib
+  { 'nvim-lua/plenary.nvim' },
+  { 'stevearc/dressing.nvim' },
+  {
+    "vhyrro/luarocks.nvim",
+    priority=1000,
+    config=true
+  },
+  { "nvim-neotest/nvim-nio" },
+  { 'j-hui/fidget.nvim', config = function() require("fidget").setup({}) end },
 
   -- Tree explorer
 
-  use 'nvim-tree/nvim-web-devicons'
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+  'nvim-tree/nvim-web-devicons',
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
     },
-  }
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  },
 
   -- Colors
 
-  use 'tjdevries/colorbuddy.vim'
-  use 'ellisonleao/gruvbox.nvim'
-
-  use 'rstacruz/vim-closer'
-
-  use { 'nvim-lualine/lualine.nvim', options = { theme = 'tokyonight' }}
+  'tjdevries/colorbuddy.vim',
+  'ellisonleao/gruvbox.nvim',
 
   -- Navigation
+  'rstacruz/vim-closer',
 
-  use { 'junegunn/fzf', run = './install --bin', }
+  { 'junegunn/fzf', run = './install --bin' },
 
-  use 'ibhagwan/fzf-lua'
+  {
+    'ibhagwan/fzf-lua',
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require('fzf-lua').setup({fzf_colors = true})
+    end
+  },
 
-  use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
+  {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}},
 
-  use {'andymass/vim-matchup', event = 'VimEnter'}
+  {'andymass/vim-matchup', event = 'VimEnter'},
 
   -- Syntax Highlighting
 
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', options = {
+  { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', options = {
     ensure_installed = { "vim", "lua", "http", "json" }
-  }}
-  use { 'nvim-treesitter/nvim-treesitter-refactor', requires = {'nvim-treesitter/nvim-treesitter'} }
+  }},
+  { 'nvim-treesitter/nvim-treesitter-refactor', requires = {'nvim-treesitter/nvim-treesitter'} },
 
   -- Layout
 
-  use {
+  {
     'NTBBloodbath/galaxyline.nvim',
     config = function()
         require('galaxyline.themes.eviline')
+        local gls = require('galaxyline').section
+        gls.left[5] = {
+          FileName = {
+            provider = "FilePath"
+          }
+        }
     end,
     requires = {'nvim-tree/nvim-web-devicons', 'nvim-lualine/lualine.nvim'}
-  }
+  },
 
   -- UI
 
-  use {
+  {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
     config = function() require('gitsigns').setup() end
-  }
-  use {'liuchengxu/vista.vim'}
+  },
+  {'liuchengxu/vista.vim'},
 
   -- Git
-  use 'tpope/vim-fugitive'
+  'tpope/vim-fugitive',
+
+  -- Comment
+  { 'terrortylor/nvim-comment' },
+
+  -- LSP plugins
+
+  { 'williamboman/mason.nvim' },
+  { 'williamboman/mason-lspconfig.nvim', automatic_installation = true },
+  { 'neovim/nvim-lspconfig' },
+  { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' },
+  { "hrsh7th/cmp-vsnip" },
+  { "hrsh7th/cmp-buffer" },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+
+  -- LSP language servers
+
+  { 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } },
+  {
+    'akinsho/flutter-tools.nvim',
+    requires = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    config = {
+      flutter_path = "/Users/nbmhqa129/Downloads/flutter/bin/flutter"
+    }
+  },
+
+  -- DAP Adapter
+
+  'leoluz/nvim-dap-go',
+  { 'sebdah/vim-delve', ft = {'go'}},
+  {
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npm run compile",
+  },
+  { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap", "microsoft/vscode-js-debug"} },
+
+  -- DAP configuration
+
+  'mfussenegger/nvim-dap',
+  'Pocco81/dap-buddy.nvim',
+  { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} },
+  { "Mgenuit/nvim-dap-kotlin", config = true },
 
   -- Autocomplete
 
-  use({
+  {
     "hrsh7th/nvim-cmp",
     requires = {
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-vsnip" },
       { "hrsh7th/vim-vsnip" },
     },
-  })
-
-  -- Comment
-  use { 'terrortylor/nvim-comment' }
-
-  -- LSP plugins
-
-  use { 'williamboman/mason.nvim' }
-  use { 'williamboman/mason-lspconfig.nvim', automatic_installation = true }
-  use { 'neovim/nvim-lspconfig' }
-  use { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu' }
-  use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
-
-  -- LSP language servers
-
-  use { 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } }
-
-  -- DAP configuration
-
-  use 'mfussenegger/nvim-dap'
-  use 'Pocco81/dap-buddy.nvim'
-  use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
-
-  -- DAP Adapter
-
-  use 'leoluz/nvim-dap-go'
-  use { 'sebdah/vim-delve', ft = {'go'}}
-  use {
-    "microsoft/vscode-js-debug",
-    opt = true,
-    run = "npm install --legacy-peer-deps && npm run compile",
-  }
-  use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap", "microsoft/vscode-js-debug"} }
+  },
 
   -- REST Client
-  use {
-  "rest-nvim/rest.nvim",
-  requires = { "nvim-lua/plenary.nvim" },
-  config = function()
-    require("rest-nvim").setup({
-      -- Open request results in a horizontal split
-      result_split_horizontal = false,
-      -- Keep the http file buffer above|left when split horizontal|vertical
-      result_split_in_place = true,
-      -- Skip SSL verification, useful for unknown certificates
-      skip_ssl_verification = false,
-      -- Encode URL before making request
-      encode_url = true,
-      -- Highlight request on run
-      highlight = {
-        enabled = true,
-        timeout = 150,
-      },
-      result = {
-        -- toggle showing URL, HTTP info, headers at top the of result window
-        show_url = true,
-        show_http_info = true,
-        show_headers = true,
-        -- executables or functions for formatting response body [optional]
-        -- set them to false if you want to disable them
-        formatters = {
-          json = "jq",
-          html = function(body)
-            return vim.fn.system({"tidy", "-i", "-q", "-"}, body)
-          end
-        },
-      },
-      -- Jump to request line on run
-      jump_to_request = true,
-      env_file = '.env',
-      custom_dynamic_variables = {},
-      yank_dry_run = true,
-    })
-  end
-}
+  {
+    "rest-nvim/rest.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+  },
 
   -- Formatter
-  use { 'mhartington/formatter.nvim' }
+  { 'mhartington/formatter.nvim' },
 
   -- Language specific plugins -------------------------------
-  use { 'fatih/vim-go' }
-end)
+  -- use { 'fatih/vim-go' }
+
+  -- Productivity --------------------------------------------
+  {
+    'nvim-orgmode/orgmode',
+    event = 'VeryLazy',
+    ft = { 'org' },
+    config = function()
+      -- Setup orgmode
+      require('orgmode').setup({
+        org_agenda_files = '~/Org/**/*',
+        org_default_notes_file = '~/Org/main.org',
+      })
+
+      -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
+      -- add ~org~ to ignore_install
+      -- require('nvim-treesitter.configs').setup({
+      --   ensure_installed = 'all',
+      --   ignore_install = { 'org' },
+      -- })
+    end,
+  }
+}

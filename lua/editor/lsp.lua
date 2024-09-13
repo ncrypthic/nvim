@@ -1,36 +1,67 @@
-local api = vim.api
-local cmd = vim.cmd
 local map = vim.keymap.set
 
 require('mason').setup{}
 require('mason-lspconfig').setup({
   ensure_installed = {
     "lua_ls",
-    "tsserver",
+    "ts_ls",
     -- "psalm",
     "terraformls",
-    "gopls",
+    -- "gopls",
     "jdtls",
     "pyright",
-    "solargraph",
+    "eslint",
+    "kotlin_language_server",
+    -- "solargraph",
     "intelephense",
     "lemminx"
   }
 })
 local lsp = require('lspconfig')
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lsp.lua_ls.setup{}
+lsp.lua_ls.setup{
+  capabilities = capabilities
+}
 -- lsp.psalm.setup{}
-lsp.tsserver.setup{}
-lsp.gopls.setup{}
-lsp.jdtls.setup{}
-lsp.pyright.setup{}
-lsp.solargraph.setup{}
-lsp.intelephense.setup{}
-lsp.lemminx.setup{}
-lsp.kotlin_language_server.setup{}
-lsp.tailwindcss.setup{}
-lsp.terraformls.setup{}
+lsp.ts_ls.setup{
+  capabilities = capabilities
+}
+lsp.eslint.setup{
+  capabilities = capabilities
+}
+-- lsp.gopls.setup{}
+lsp.jdtls.setup{
+  capabilities = capabilities
+}
+lsp.pyright.setup{
+  capabilities = capabilities
+}
+-- lsp.solargraph.setup{}
+lsp.intelephense.setup{
+  capabilities = capabilities
+}
+lsp.lemminx.setup{
+  capabilities = capabilities
+}
+lsp.kotlin_language_server.setup{
+  capabilities = capabilities,
+  settings = {
+    kotlin = {
+      compiler = {
+        jvm = {
+          target = "17"
+        }
+      }
+    }
+  }
+}
+lsp.tailwindcss.setup{
+  capabilities = capabilities,
+}
+lsp.terraformls.setup{
+  capabilities = capabilities,
+}
 
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -43,9 +74,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
--- autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
--- autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
--- autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+vim.g.vista_default_executive = 'nvim_lsp'
 
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
@@ -80,7 +109,6 @@ vim.api.nvim_create_autocmd("CursorMoved", {
 -- OPTIONS -----------------------
 ----------------------------------
 -- global
-vim.opt_global.completeopt = { "menuone", "noinsert", "noselect" }
 
 -- LSP mappings
 map("n", "gd", function()
@@ -156,7 +184,11 @@ map("n", "]c", function()
 end)
 
 map("n", "<leader>\\", function()
-  vim.cmd[[CodeActionMenu]]
+  vim.lsp.buf.code_action()
+end)
+
+map("n", "<leader>b", function()
+  vim.cmd [[ Vista!! ]]
 end)
 
 print "Init lsp"
