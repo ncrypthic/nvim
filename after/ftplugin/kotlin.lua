@@ -17,10 +17,22 @@ table.insert(dap.configurations.kotlin, {
   type = "kotlin",
   request = "attach",
   projectRoot = "${workspaceFolder}",
+  hostName= "localhost",
+  port = 5005,
+  timeout = 2000,
+  enableJsonLogging = false,
+})
+
+table.insert(dap.configurations.kotlin, {
+  name = "Attach process - ConsoleLauncher (port: 5005)",
+  type = "kotlin",
+  request = "attach",
+  projectRoot = "${workspaceFolder}",
   mainClass = "org.junit.platform.console.ConsoleLauncher --scan-class-path",
   hostName= "localhost",
-  port=5005,
-  timeout=2000
+  port = 5005,
+  timeout = 20000,
+  enableJsonLogging = false
 })
 
 table.insert(dap.configurations.kotlin, {
@@ -28,11 +40,8 @@ table.insert(dap.configurations.kotlin, {
   type = "kotlin",
   request = "launch",
   projectRoot = "${workspaceFolder}",
-  mainClass = function()
-    local class_name = vim.fn.input("Main class: ")
-    print(class_name)
-    return class_name
-  end
+  mainClass = "${command:pickFile}",
+  enableJsonLogging = false
 })
 
 table.insert(dap.configurations.kotlin, {

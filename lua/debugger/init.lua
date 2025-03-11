@@ -2,7 +2,7 @@ local dap = require('dap')
 
 dap.adapters.kotlin = {
   type = "executable",
-  command = "/Users/ncrypthic/.local/share/nvim/mason/bin/kotlin-debug-adapter",
+  command =  os.getenv('HOME') .. "/.local/share/nvim/mason/bin/kotlin-debug-adapter",
   options = {
     auto_continue_if_many_stopped = false
   },

@@ -11,6 +11,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp_signature_help' },
     { name = "nvim_lsp" },
+    { name = 'orgmode' },
     { name = "vsnip" },
     { name = "buffer" },
   }, {
@@ -25,7 +26,7 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-n>'] = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }),
     ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }),
-    ['<C-y>'] = cmp.mapping.confirm({ select = false }),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
   })
 })

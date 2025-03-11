@@ -15,6 +15,23 @@ return {
   },
   { "nvim-neotest/nvim-nio" },
   { 'j-hui/fidget.nvim', config = function() require("fidget").setup({}) end },
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('telescope').setup {
+        defaults = {
+          dynamic_preview_title = true,
+          path_display = {
+            filename_first = {
+                reverse_directories = true
+            }
+          }
+        }
+      }
+    end
+  },
 
   -- Tree explorer
 
@@ -135,6 +152,7 @@ return {
 
   -- Autocomplete
 
+  { "hrsh7th/vim-vsnip" },
   {
     "hrsh7th/nvim-cmp",
     requires = {
@@ -161,19 +179,5 @@ return {
     'nvim-orgmode/orgmode',
     event = 'VeryLazy',
     ft = { 'org' },
-    config = function()
-      -- Setup orgmode
-      require('orgmode').setup({
-        org_agenda_files = '~/Org/**/*',
-        org_default_notes_file = '~/Org/main.org',
-      })
-
-      -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
-      -- add ~org~ to ignore_install
-      -- require('nvim-treesitter.configs').setup({
-      --   ensure_installed = 'all',
-      --   ignore_install = { 'org' },
-      -- })
-    end,
   }
 }

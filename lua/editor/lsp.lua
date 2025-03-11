@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local builtin = require('telescope.builtin')
 
 require('mason').setup{}
 require('mason-lspconfig').setup({
@@ -111,28 +112,20 @@ vim.api.nvim_create_autocmd("CursorMoved", {
 -- global
 
 -- LSP mappings
-map("n", "gd", function()
-  vim.lsp.buf.definition()
-end)
+map("n", "gd", builtin.lsp_definitions)
 
 map("n", "K", function()
   vim.lsp.buf.hover()
 end)
 
-map("n", "gi", function()
-  vim.lsp.buf.implementation()
-end)
+map("n", "gi", builtin.lsp_implementations)
 
-map("n", "gr", function()
-  vim.lsp.buf.references()
-end)
+map("n", "gr", builtin.lsp_references)
 
-map("n", "gds", function()
-  vim.lsp.buf.document_symbol()
-end)
+map("n", "gds", builtin.lsp_document_symbols)
 
 map("n", "gws", function()
-  vim.lsp.buf.workspace_symbol()
+  builtin.lsp_workspace_symbols()
 end)
 
 map("n", "<leader>cl", function()

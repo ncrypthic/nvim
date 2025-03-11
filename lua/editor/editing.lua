@@ -15,6 +15,7 @@ require("formatter").setup {
     php={require('formatter.filetypes.php').php_cs_fixer},
     go = { require('formatter.filetypes.go').gofmt },
     kotlin = { require('formatter.filetypes.kotlin').ktlint },
+    dart = { require('formatter.filetypes.dart').dartformat },
     ["*"] = {
       -- "formatter.filetypes.any" defines default configurations for any
       -- filetype
