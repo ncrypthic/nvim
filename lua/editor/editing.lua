@@ -9,6 +9,7 @@ require("formatter").setup {
   -- All formatter configurations are opt-in
   filetype = {
     typescript = { require('formatter.filetypes.typescript').prettier },
+    rust = { require('formatter.filetypes.rust').rustfmt },
     typescriptreact = { require('formatter.filetypes.typescriptreact').prettier },
     javascript = { require('formatter.filetypes.typescript').prettier },
     javascriptreact = { require('formatter.filetypes.javascriptreact').prettier },

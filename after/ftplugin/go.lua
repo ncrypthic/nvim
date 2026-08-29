@@ -1,5 +1,7 @@
 local dap= require("dap")
 
+vim.lsp.enable('gopls')
+
 dap.adapters.delve = {
   type = 'server',
   port = '${port}',

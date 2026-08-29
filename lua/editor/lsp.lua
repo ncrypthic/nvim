@@ -2,84 +2,80 @@ local map = vim.keymap.set
 local builtin = require('telescope.builtin')
 
 require('mason').setup{}
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    "lua_ls",
-    "ts_ls",
-    -- "psalm",
-    "terraformls",
-    -- "gopls",
-    "jdtls",
-    "pyright",
-    "eslint",
-    "kotlin_language_server",
-    -- "solargraph",
-    "intelephense",
-    "lemminx"
-  }
-})
-local lsp = require('lspconfig')
+-- require('mason-lspconfig').setup({
+--   ensure_installed = {
+--     "lua_ls",
+--     "ts_ls",
+--     -- "psalm",
+--     "terraformls",
+--     -- "gopls",
+--     "jdtls",
+--     "pyright",
+--     -- "eslint",
+--     "kotlin_language_server",
+--     -- "solargraph",
+--     "intelephense",
+--     "lemminx"
+--   }
+-- })
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lsp.lua_ls.setup{
+vim.lsp.config('lua_ls', {
   capabilities = capabilities
-}
+})
 -- lsp.psalm.setup{}
-lsp.ts_ls.setup{
+vim.lsp.config('ts_ls',{
   capabilities = capabilities
-}
-lsp.eslint.setup{
+})
+-- vim.lsp.config('eslint', {
+--   capabilities = capabilities
+-- })
+vim.lsp.config('jdtls', {
   capabilities = capabilities
-}
--- lsp.gopls.setup{}
-lsp.jdtls.setup{
+})
+vim.lsp.config('pyright', {
   capabilities = capabilities
-}
-lsp.pyright.setup{
+})
+-- vim.lsp.config('solargraph')
+vim.lsp.config('intelephense',{
   capabilities = capabilities
-}
--- lsp.solargraph.setup{}
-lsp.intelephense.setup{
+})
+vim.lsp.config('lemminx',{
   capabilities = capabilities
-}
-lsp.lemminx.setup{
-  capabilities = capabilities
-}
-lsp.kotlin_language_server.setup{
+})
+-- vim.lsp.config('kotlin-lsp', {
+--   capabilities = capabilities,
+--   settings = {
+--     kotlin = {
+--       compiler = {
+--         jvm = {
+--           target = "21"
+--         }
+--       }
+--     }
+--   }
+-- })
+vim.lsp.config('tailwindcss', {
   capabilities = capabilities,
-  settings = {
-    kotlin = {
-      compiler = {
-        jvm = {
-          target = "17"
-        }
-      }
-    }
-  }
-}
-lsp.tailwindcss.setup{
+})
+vim.lsp.config('terraformls', {
   capabilities = capabilities,
-}
-lsp.terraformls.setup{
+})
+vim.lsp.config('gopls', {
   capabilities = capabilities,
-}
-
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-  },
-  refactor = {
-    highlight_definitions = {
-      enable = true,
-    },
-  },
-}
+})
+vim.lsp.config('rust_analyzer', {
+  capabilities = capabilities,
+})
+vim.lsp.config('marksman', {
+  capabilities = capabilities,
+})
 
 vim.g.vista_default_executive = 'nvim_lsp'
 
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
-    local clients = vim.lsp.get_active_clients()
+    local clients = vim.lsp.get_clients()
     if client == nil then
       return
     end
@@ -155,7 +151,7 @@ end)
 
 -- all workspace errors
 map("n", "<leader>ae", function()
-  vim.diagnostic.setqflist({ severity = "E" })
+  vim.diagnostic.setqflist({ severity = "W" })
 end)
 
 -- all workspace warnings

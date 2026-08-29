@@ -5,6 +5,9 @@ local tree = require('nvim-tree')
 local fzf = require('fzf-lua')
 local treeapi = require('nvim-tree.api')
 local builtin = require('telescope.builtin')
+local lualine = require('lualine')
+
+lualine.setup{}
 
 tree.setup{
   renderer = {

@@ -1,3 +1,17 @@
+vim.lsp.config('kotlin-lsp', {
+  cmd = {"/Users/ncrypthic/.local/share/nvim/mason/packages/kotlin-lsp/kotlin-lsp.sh"},
+  filetypes = { "kotlin" },
+  root_markers = {
+    "gradlew",
+    ".git",
+    "build.gradle",
+    "build.gradle.kts",
+    "settings.gradle",
+    "settings.gradle.kts"
+  }
+})
+vim.lsp.enable('kotlin-lsp')
+
 local dap, dap_kotlin = require("dap"), require('dap-kotlin')
 
 dap_kotlin.setup{}

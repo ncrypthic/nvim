@@ -1,5 +1,6 @@
 vim.o.shiftwidth=2
 vim.o.softtabstop=2
+vim.lsp.enable('ts_ls')
 
 local dap, dapui = require("dap"), require("dapui")
 

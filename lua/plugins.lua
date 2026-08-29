@@ -80,17 +80,7 @@ return {
   -- Layout
 
   {
-    'NTBBloodbath/galaxyline.nvim',
-    config = function()
-        require('galaxyline.themes.eviline')
-        local gls = require('galaxyline').section
-        gls.left[5] = {
-          FileName = {
-            provider = "FilePath"
-          }
-        }
-    end,
-    requires = {'nvim-tree/nvim-web-devicons', 'nvim-lualine/lualine.nvim'}
+    'nvim-lualine/lualine.nvim',
   },
 
   -- UI
@@ -106,6 +96,9 @@ return {
 
   -- Comment
   { 'terrortylor/nvim-comment' },
+
+  -- Markdown
+  { 'preservim/vim-markdown' },
 
   -- LSP plugins
 
