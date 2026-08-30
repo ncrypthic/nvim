@@ -1,5 +1,4 @@
 vim.lsp.config('kotlin-lsp', {
-  cmd = {"/Users/ncrypthic/.local/share/nvim/mason/packages/kotlin-lsp/kotlin-lsp.sh"},
   filetypes = { "kotlin" },
   root_markers = {
     "gradlew",
@@ -11,6 +10,7 @@ vim.lsp.config('kotlin-lsp', {
   }
 })
 vim.lsp.enable('kotlin-lsp')
+vim.lsp.enable('ktlint')
 
 local dap, dap_kotlin = require("dap"), require('dap-kotlin')
 

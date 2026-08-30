@@ -1,3 +1,4 @@
+vim.lsp.enable('jdtls')
 local dap, dapui = require("dap"), require("dapui")
 
 dap.adapters.java = function(callback)

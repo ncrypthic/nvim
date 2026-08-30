@@ -13,6 +13,7 @@ vim.o.softtabstop = 4
 -- vim.o.background = 'dark'
 vim.o.foldmethod = 'indent'
 vim.o.fillchars = 'stl: ,stlnc: ,vert: ,fold:-,diff:-'
+vim.o.termguicolors = false
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -25,4 +26,4 @@ require('navigation')
 require('editor')
 require('debugger')
 
-cmd([[colorscheme gruvbox]])
+cmd([[colorscheme solarized8]])

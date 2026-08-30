@@ -1,5 +1,19 @@
 vim.o.shiftwidth=2
 vim.o.softtabstop=2
+
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      diagnostics = {
+        enable = true,
+        globals = { 'vim' }
+      }
+    }
+  }
+})
+
+vim.lsp.enable('lua_ls')
+
 local dap, dapui = require("dap"), require("dapui")
 
 dap.listeners.after.event_initialized["dapui_config"] = function()

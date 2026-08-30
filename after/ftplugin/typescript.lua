@@ -1,3 +1,4 @@
+vim.lsp.enable('ts_ls')
 vim.o.shiftwidth=2
 vim.o.softtabstop=2
 

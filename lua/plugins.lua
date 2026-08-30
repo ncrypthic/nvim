@@ -120,9 +120,7 @@ return {
         'nvim-lua/plenary.nvim',
         'stevearc/dressing.nvim', -- optional for vim.ui.select
     },
-    config = {
-      flutter_path = "/Users/nbmhqa129/Downloads/flutter/bin/flutter"
-    }
+    config = true
   },
 
   -- DAP Adapter

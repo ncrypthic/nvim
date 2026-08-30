@@ -1,1 +1,1 @@
-vim.o.sw=2
+require("flutter-tools").setup{}

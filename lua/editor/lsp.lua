@@ -2,97 +2,65 @@ local map = vim.keymap.set
 local builtin = require('telescope.builtin')
 
 require('mason').setup{}
--- require('mason-lspconfig').setup({
---   ensure_installed = {
---     "lua_ls",
---     "ts_ls",
---     -- "psalm",
---     "terraformls",
---     -- "gopls",
---     "jdtls",
---     "pyright",
---     -- "eslint",
---     "kotlin_language_server",
---     -- "solargraph",
---     "intelephense",
---     "lemminx"
---   }
--- })
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-vim.lsp.config('lua_ls', {
-  capabilities = capabilities
-})
--- lsp.psalm.setup{}
-vim.lsp.config('ts_ls',{
-  capabilities = capabilities
-})
--- vim.lsp.config('eslint', {
---   capabilities = capabilities
--- })
-vim.lsp.config('jdtls', {
-  capabilities = capabilities
-})
-vim.lsp.config('pyright', {
-  capabilities = capabilities
-})
--- vim.lsp.config('solargraph')
-vim.lsp.config('intelephense',{
-  capabilities = capabilities
-})
-vim.lsp.config('lemminx',{
-  capabilities = capabilities
-})
-vim.lsp.config('kotlin-lsp', {
-  capabilities = capabilities,
-  settings = {
-    kotlin = {
-      compiler = {
-        jvm = {
-          target = "21"
-        }
-      }
-    }
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    "lua_ls",
+    "ts_ls",
+    -- "psalm",
+    "terraformls",
+    -- "gopls",
+    "jdtls",
+    "pyright",
+    "eslint",
+    -- "harper_ls",
+    --"kotlin_language_server",
+    -- "solargraph",
+    "kotlin_lsp",
+    -- "ktlint",
+    "intelephense",
+    "lemminx"
   }
 })
-vim.lsp.config('tailwindcss', {
-  capabilities = capabilities,
-})
-vim.lsp.config('terraformls', {
-  capabilities = capabilities,
-})
-vim.lsp.config('gopls', {
-  capabilities = capabilities,
-})
-vim.lsp.config('rust_analyzer', {
-  capabilities = capabilities,
-})
-vim.lsp.config('marksman', {
-  capabilities = capabilities,
-})
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+  refactor = {
+    highlight_definitions = {
+      enable = true,
+    },
+  },
+}
 
 vim.g.vista_default_executive = 'nvim_lsp'
 
 vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    local clients = vim.lsp.get_active_clients()
+  callback = function(ev)
+    local clients = vim.lsp.get_clients({ bufnr = ev.buf })
     if #clients == 0 then
       return
     end
-    if clients[1].server_capabilities.documentHighlightProvider then
-      vim.lsp.buf.document_highlight()
+    for _,client in ipairs(clients) do
+      if client.server_capabilities.documentHighlightProvider then
+        vim.lsp.buf.document_highlight()
+        return
+      end
     end
   end,
 })
 
 vim.api.nvim_create_autocmd("CursorHoldI", {
-  callback = function()
-    local clients = vim.lsp.get_active_clients()
+  callback = function(ev)
+    local clients = vim.lsp.get_clients({ bufnr = ev.buf })
     if #clients == 0 then
       return
     end
-    if clients[1].server_capabilities.documentHighlightProvider then
-      vim.lsp.buf.document_highlight()
+    for _,client in ipairs(clients) do
+      if client.server_capabilities.documentHighlightProvider then
+        vim.lsp.buf.document_highlight()
+        return
+      end
     end
   end,
 })
