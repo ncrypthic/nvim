@@ -75,7 +75,7 @@ return {
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', options = {
     ensure_installed = { "vim", "lua", "http", "json" }
   }},
-  { 'nvim-treesitter/nvim-treesitter-refactor', requires = {'nvim-treesitter/nvim-treesitter'} },
+  { 'nvim-treesitter/nvim-treesitter-locals', requires = {'nvim-treesitter/nvim-treesitter'} },
 
   -- Layout
 

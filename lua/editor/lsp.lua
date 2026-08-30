@@ -43,18 +43,18 @@ vim.lsp.config('intelephense',{
 vim.lsp.config('lemminx',{
   capabilities = capabilities
 })
--- vim.lsp.config('kotlin-lsp', {
---   capabilities = capabilities,
---   settings = {
---     kotlin = {
---       compiler = {
---         jvm = {
---           target = "21"
---         }
---       }
---     }
---   }
--- })
+vim.lsp.config('kotlin-lsp', {
+  capabilities = capabilities,
+  settings = {
+    kotlin = {
+      compiler = {
+        jvm = {
+          target = "21"
+        }
+      }
+    }
+  }
+})
 vim.lsp.config('tailwindcss', {
   capabilities = capabilities,
 })
@@ -75,8 +75,8 @@ vim.g.vista_default_executive = 'nvim_lsp'
 
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
-    local clients = vim.lsp.get_clients()
-    if client == nil then
+    local clients = vim.lsp.get_active_clients()
+    if #clients == 0 then
       return
     end
     if clients[1].server_capabilities.documentHighlightProvider then
@@ -88,7 +88,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 vim.api.nvim_create_autocmd("CursorHoldI", {
   callback = function()
     local clients = vim.lsp.get_active_clients()
-    if client == nil then
+    if #clients == 0 then
       return
     end
     if clients[1].server_capabilities.documentHighlightProvider then
