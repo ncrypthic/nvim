@@ -11,7 +11,7 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 -- vim.o.background = 'dark'
-vim.o.foldmethod = 'indent'
+vim.o.foldmethod = 'syntax'
 vim.o.fillchars = 'stl: ,stlnc: ,vert: ,fold:-,diff:-'
 vim.o.termguicolors = false
 

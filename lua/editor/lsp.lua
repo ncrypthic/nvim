@@ -33,8 +33,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-vim.g.vista_default_executive = 'nvim_lsp'
-
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function(ev)
     local clients = vim.lsp.get_clients({ bufnr = ev.buf })
@@ -145,7 +143,13 @@ map("n", "<leader>\\", function()
 end)
 
 map("n", "<leader>b", function()
-  vim.cmd [[ Vista!! ]]
+  vim.cmd [[ Outline ]]
 end)
+
+map("n", "<leader>i", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({0}),{0})
+end)
+
+require("outline").setup{}
 
 print "Init lsp"

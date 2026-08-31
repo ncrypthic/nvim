@@ -43,9 +43,9 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
+    config = {
+      sync_root_with_cwd = true
+    },
   },
 
   -- Colors
@@ -89,7 +89,7 @@ return {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
     config = function() require('gitsigns').setup() end
   },
-  {'liuchengxu/vista.vim'},
+  { "hedyhli/outline.nvim" },
 
   -- Git
   'tpope/vim-fugitive',
