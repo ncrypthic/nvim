@@ -17,7 +17,6 @@ return {
   { 'j-hui/fidget.nvim', config = function() require("fidget").setup({}) end },
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('telescope').setup {
@@ -72,7 +71,7 @@ return {
 
   -- Syntax Highlighting
 
-  { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', options = {
+  { 'nvim-treesitter/nvim-treesitter', branch='main', run = ':TSUpdate', options = {
     ensure_installed = { "vim", "lua", "http", "json" }
   }},
   { 'nvim-treesitter/nvim-treesitter-locals', requires = {'nvim-treesitter/nvim-treesitter'} },
