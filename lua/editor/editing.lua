@@ -1,6 +1,8 @@
 local formatter = require('formatter')
 local formatter_util = require('formatter.util')
 
+require("smear_cursor").setup {}
+
 require("formatter").setup {
   -- Enable or disable logging
   logging = true,

@@ -69,6 +69,8 @@ return {
 
   {'andymass/vim-matchup', event = 'VimEnter'},
 
+  "sphamba/smear-cursor.nvim",
+
   -- Syntax Highlighting
 
   { 'nvim-treesitter/nvim-treesitter', branch='main', run = ':TSUpdate', options = {
